@@ -1,29 +1,84 @@
-NAME = libft.a
+# ==== Editable ====
+NAME:=libft.a
 
-CC = gcc
-CFLAGS = -Wall -Werror -Wextra
-HEADERS = -I libft.h
-SRC = 	ft_isdigit.c ft_lstdel.c ft_lstmerge.c ft_lstswap.c ft_memdel.c ft_putendl_fd.c ft_strchr.c ft_strequ.c ft_strmap.c ft_strnew.c ft_strsub.c\
-		ft_atoi.c ft_isprint.c ft_lstdelone.c ft_lstnew.c ft_memalloc.c ft_memmove.c ft_putnbr.c ft_strclr.c ft_striter.c ft_strmapi.c ft_strnstr.c ft_strtrim.c\
-		ft_bzero.c ft_itoa.c ft_lstfind.c ft_lstremoveif.c ft_memccpy.c ft_memset.c ft_putnbr_fd.c ft_strcmp.c ft_striteri.c ft_strncat.c ft_strrchr.c ft_tolower.c\
-		ft_isalnum.c ft_lstadd.c ft_lstiter.c ft_lstrev.c ft_memchr.c ft_putchar.c ft_putstr.c ft_strcpy.c ft_strjoin.c ft_strncmp.c ft_strsplit.c ft_toupper.c\
-		ft_isalpha.c ft_lstaddlast.c ft_lstlast.c ft_lstsize.c ft_memcmp.c ft_putchar_fd.c ft_putstr_fd.c ft_strdel.c ft_strlcat.c ft_strncpy.c ft_strsplit_tolst.c\
-		ft_isascii.c ft_lstclear.c ft_lstmap.c ft_lstsort.c ft_memcpy.c ft_putendl.c ft_strcat.c ft_strdup.c ft_strlen.c ft_strnequ.c ft_strstr.c ft_putlst.c
+VECTORPATH:=ft_array/
+VECTOR:=fta_alloc fta_append fta_new fta_reserve fta_resize fta_trim \
+	fta_clear fta_clearf fta_popback fta_iter fta_iteri fta_popindex \
+	fta_swap fta_overwrite fta_string fta_replace
 
-OBJ = $(SRC:.c=.o)
+FILES=ft_isdigit ft_lstdel ft_lstmerge ft_lstswap ft_memdel ft_putendl_fd ft_strchr ft_strequ ft_strmap ft_strnew ft_strsub\
+		ft_atoi ft_isprint ft_lstdelone ft_lstnew ft_memalloc ft_memmove ft_putnbr ft_strclr ft_striter ft_strmapi ft_strnstr ft_strtrim\
+		ft_bzero ft_itoa ft_lstfind ft_lstremoveif ft_memccpy ft_memset ft_putnbr_fd ft_strcmp ft_striteri ft_strncat ft_strrchr ft_tolower\
+		ft_isalnum ft_lstadd ft_lstiter ft_lstrev ft_memchr ft_putchar ft_putstr ft_strcpy ft_strjoin ft_strncmp ft_strsplit ft_toupper\
+		ft_isalpha ft_lstaddlast ft_lstlast ft_lstsize ft_memcmp ft_putchar_fd ft_putstr_fd ft_strdel ft_strlcat ft_strncpy ft_strsplit_tolst\
+		ft_isascii ft_lstclear ft_lstmap ft_lstsort ft_memcpy ft_putendl ft_strcat ft_strdup ft_strlen ft_strnequ ft_strstr ft_putlst
 
-.PHONY: all clean fclean re
+# ==================
+
+# ==== Standard ====
+CC:=clang
+CCHPATH:=cache/
+SRCPATH:=src/
+HDRPATH:=include/
+CFLAGS:=-Wall -Wextra -I $(HDRPATH)
+# ==================
+
+# ===== Colors =====
+END:="\033[0;0m"
+BLACK:="\033[1;30m"
+RED:="\033[1;31m"
+GREEN:="\033[1;32m"
+CYAN:="\033[1;35m"
+PURPLE:="\033[1;36m"
+WHITE:="\033[1;37m"
+# ==================
+
+# ====== Auto ======
+FILES+=$(addprefix $(VECTORPATH),$(VECTOR))
+
+SRC:=$(addprefix $(SRCPATH),$(addsuffix .c,$(FILES)))
+OBJ:=$(addprefix $(CCHPATH),$(addsuffix .o,$(FILES)))
+# ==================
+CCHF:=.cache_exists
+MAKEFLAGS+=-j
 
 all: $(NAME)
 
-$(NAME):
-	@$(CC) -c $(CFLAGS) $(SRC) $(HEADERS)
+$(NAME): $(OBJ)
+	@echo $(END)
+	@echo $(CYAN) " - Compiling $@" $(RED)
 	@ar rc $(NAME) $(OBJ)
+	@ranlib $(NAME)
+	@echo $(GREEN) " - Done" $(END)
+
+$(CCHPATH)%.o: $(SRCPATH)%.c | $(CCHF)
+	@echo ".\c"
+	@$(CC) $(CFLAGS) -c $< -o $@
+
+%.c:
+	@echo $(RED) "Missing file : $@"
+
+$(CCHF):
+	@mkdir $(CCHPATH)
+	@mkdir $(CCHPATH)$(VECTORPATH)
+	@touch $(CCHF)
 
 clean:
-	@/bin/rm -f $(OBJ)
+	@rm -rf $(CCHPATH)
+	@rm -f $(CCHF)
 
 fclean: clean
-	@/bin/rm -f $(NAME)
+	@rm -f $(NAME)
 
-re: fclean all
+re: fclean
+	@$(MAKE) all
+
+test:
+	@echo "Files :" $(FILES)
+
+norm:
+	@echo $(RED)
+	@norminette $(SRC) $(HDRPATH) | grep -v Norme -B1 || true
+	@echo $(END)
+
+.PHONY: all clean fclean re test norme
