@@ -43,6 +43,7 @@ void			*ft_memmove(void *dst, const void *src, size_t len);
 void			*ft_memset(void *b, int c, size_t len);
 char			*ft_strcat(char *s1, const char *s2);
 char			*ft_strchr(const char *s, int c);
+int				is_in(char i, char const *str);
 int				ft_strcmp(const char *s1, const char *s2);
 char			*ft_strcpy(char *dst, const char *src);
 char			*ft_strdup(const char *s1);
@@ -105,4 +106,11 @@ void			ft_lstswap(t_list **begin_list,
 				t_list **current_list, t_list **prev_list);
 void			ft_lstsort(t_list **begin_list, int (*cmp)());
 void			ft_putlst(t_list *begin_lst);
+
+/*
+** Numbers manipulation tools
+*/
+
+# define	ABS(V) ((V) < 0 ? -(V) : (V))
+# define 	MIN(X, Y) (((X) < (Y)) ? (X) : (Y))
 #endif

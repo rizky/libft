@@ -26,6 +26,26 @@
 ** "-0000141592   "
 */
 
+void	ft_exit(char const *const fnc, char const *const str)
+{
+	ft_putstr_fd("ERROR\tCritical failure in function ", 2);
+	ft_putstr_fd(fnc, 2);
+	ft_putstr_fd(". The program will exit, reason being : ", 2);
+	ft_putstr_fd(str, 2);
+	ft_putstr_fd(".\n", 2);
+	exit(1);
+}
+
+void	*ft_safe_calloc(size_t count, size_t size)
+{
+	void	*const ans = malloc(count * size);
+
+	if (ans == NULL)
+		ft_exit("ft_safe_calloc", "Out of memory (Malloc failed)");
+	ft_bzero(ans, count * size);
+	return (ans);
+}
+
 void	fta_swap(t_array *self, size_t before, size_t after)
 {
 	char			*tmp;
