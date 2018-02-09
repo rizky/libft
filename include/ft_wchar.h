@@ -1,18 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_wchar.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rnugroho <rnugroho@students.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/14 16:35:01 by rnugroho          #+#    #+#             */
-/*   Updated: 2018/02/09 15:09:13 by rnugroho         ###   ########.fr       */
+/*   Created: 2018/02/07 21:15:43 by rnugroho          #+#    #+#             */
+/*   Updated: 2018/02/07 21:15:44 by rnugroho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef FT_WCHAR_H
+# define FT_WCHAR_H
 
-void	ft_bzero(void *s, size_t n)
-{
-	ft_memset(s, 0, n);
-}
+# include "libft.h"
+# include <wchar.h>
+
+size_t		ft_wstrlen(const wchar_t *wstr);
+size_t		ft_wstrconv(char *buff, const wchar_t *wstr);
+size_t		ft_wstrnconv(char *buff, const wchar_t *wstr, size_t n);
+size_t		ft_widetoa(char *buff, wint_t w);
+
+#endif

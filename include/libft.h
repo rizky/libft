@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rnugroho <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rnugroho <rnugroho@students.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/17 17:38:44 by rnugroho          #+#    #+#             */
-/*   Updated: 2017/11/17 17:38:45 by rnugroho         ###   ########.fr       */
+/*   Updated: 2018/02/07 21:26:29 by rnugroho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <string.h>
 # include <stdlib.h>
 # include "ft_array.h"
+# include "ft_wchar.h"
 
 typedef struct	s_list
 {
@@ -111,6 +112,8 @@ void			ft_putlst(t_list *begin_lst);
 ** Numbers manipulation tools
 */
 
-# define	ABS(V) ((V) < 0 ? -(V) : (V))
-# define 	MIN(X, Y) (((X) < (Y)) ? (X) : (Y))
+# define ABS(V) ((V) < 0 ? -(V) : (V))
+# define MIN(X, Y) (((X) < (Y)) ? (X) : (Y))
+# define _MIN2(A,B) ((A) < (B) ? (A) : (B))
+
 #endif

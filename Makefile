@@ -11,13 +11,13 @@ FILES=ft_isdigit ft_lstdel ft_lstmerge ft_lstswap ft_memdel ft_putendl_fd ft_str
 		ft_bzero ft_itoa ft_lstfind ft_lstremoveif ft_memccpy ft_memset ft_putnbr_fd ft_strcmp ft_striteri ft_strncat ft_strrchr ft_tolower\
 		ft_isalnum ft_lstadd ft_lstiter ft_lstrev ft_memchr ft_putchar ft_putstr ft_strcpy ft_strjoin ft_strncmp ft_strsplit ft_toupper\
 		ft_isalpha ft_lstaddlast ft_lstlast ft_lstsize ft_memcmp ft_putchar_fd ft_putstr_fd ft_strdel ft_strlcat ft_strncpy ft_strsplit_tolst\
-		ft_isascii ft_lstclear ft_lstmap ft_lstsort ft_memcpy ft_putendl ft_strcat ft_strdup ft_strlen ft_strnequ ft_strstr ft_putlst
+		ft_isascii ft_lstclear ft_lstmap ft_lstsort ft_memcpy ft_putendl ft_strcat ft_strdup ft_strlen ft_strnequ ft_strstr ft_putlst wide_char
 
 # ==================
 
 # ==== Standard ====
 CC:=clang
-CCHPATH:=cache/
+CCHPATH:=obj/
 SRCPATH:=src/
 HDRPATH:=include/
 CFLAGS:=-Wall -Wextra -I $(HDRPATH)
@@ -40,7 +40,6 @@ SRC:=$(addprefix $(SRCPATH),$(addsuffix .c,$(FILES)))
 OBJ:=$(addprefix $(CCHPATH),$(addsuffix .o,$(FILES)))
 # ==================
 CCHF:=.cache_exists
-MAKEFLAGS+=-j
 
 all: $(NAME)
 
