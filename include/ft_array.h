@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_array.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angagnie <angagnie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rnugroho <rnugroho@students.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/24 13:50:45 by angagnie          #+#    #+#             */
-/*   Updated: 2017/03/30 17:50:01 by angagnie         ###   ########.fr       */
+/*   Created: 2015/11/24 13:50:45 by rnugroho          #+#    #+#             */
+/*   Updated: 2018/02/09 16:08:51 by rnugroho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,43 +149,6 @@ int				fta_reserve(t_array *self, size_t size);
 int				fta_trim(t_array *self);
 
 /*
-** Array::clear
-** -
-** Frees the underlying data, but leaves the array usable :
-** one might still call the append function, the array was only
-** emptied.
-*/
-
-void			fta_clear(t_array *self);
-
-/*
-** Array::clear_f
-** -
-** Same as Array::clear, but uses a custom function on each element before
-** free the underlying array,
-** useful when your structures contains addresses of allocated variables
-** to be freed to prevent leaks.
-** -
-** _del_ is a function that knows how to properly free a single element's
-** contents from its address.
-*/
-
-void			fta_clearf(t_array *self, void (*del)(void *));
-
-/*
-** Array::release
-** -
-** If one initialised the array with fta_alloc, they are advised
-** to use fta_release to free it.
-** Both the underlying data and the array will be freed.
-** -
-** _ptr_ is the address of a pointer to an array,
-** and will be set to NULL to prevent further uses attempts.
-*/
-
-void			fta_release(t_array **ptr);
-
-/*
 ** Array::pop_back
 ** -
 ** Removes at most _len_ elements at the end.
@@ -241,22 +204,6 @@ int				fta_popindex(t_array *self, size_t index, size_t len);
 
 int				fta_popindexf(
 	t_array *self, size_t index, size_t len, void (*del)(void *));
-
-/*
-** Array::overwrite
-** -
-** Replaces _self_'s contents with _other_'s.
-** -
-** Will fail, leaving _self_ untouched,
-** if the two array's aren't compatible.
-** (i.e. if the two types do not have the same lenght)
-** -
-** Returns a status :
-** 0 upon success
-** 1 otherwise.
-*/
-
-int				fta_overwrite(t_array *self, const t_array *other);
 
 /*
 ** Array::replace
@@ -352,31 +299,6 @@ int				fta_replace(
 */
 
 # define ARRAY_IFP(A,P) ((((void *)P) - (A)->data) / (A)->type_size)
-
-/*
-** Array::iterate
-** -
-** The following set of functions allow one to apply a certain
-** function on each of the elements of the array.
-** -
-** iter :	f(T*)		knows what to do with the address of an element
-** iter1 :	f(A*,T*)	the same, but with an extra piece of information
-** iter2 :	f(A*,B*,T*)	the same, but with two external variables passed through
-**
-** iteri :	f(int,T*)		knows what to do with an element and its index
-** iteri1 :	f(A*,int,T*)	the same but with an extra piece of data
-** iteri2 :	f(A*,B*,int,T*)	the same but with two extra pieces of data
-** -
-** _f_ will be called on each of the elements.
-*/
-
-void			fta_iter(const t_array *self, void (*f)());
-void			fta_iter1(const t_array *self, void (*f)(), void *a);
-void			fta_iter2(const t_array *self, void (*f)(), void *a, void *b);
-
-void			fta_iteri(const t_array *self, void (*f)());
-void			fta_iteri1(const t_array *self, void (*f)(), void *a);
-void			fta_iteri2(const t_array *self, void (*f)(), void *a, void *b);
 
 /*
 ** Iterator<Array>::new
