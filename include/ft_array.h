@@ -6,7 +6,7 @@
 /*   By: rnugroho <rnugroho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/24 13:50:45 by rnugroho          #+#    #+#             */
-/*   Updated: 2018/02/17 14:45:32 by rnugroho         ###   ########.fr       */
+/*   Updated: 2018/02/17 15:07:46 by rnugroho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -330,7 +330,7 @@ int				fta_replace(
 ** Returns the end of the array
 */
 
-# define ARRAY_LAST(A) ((A)->data + (A)->size * (A)->type_size - 1)
+# define ARRAY_LAST(A) ((char *)((A)->data + (A)->size * (A)->type_size - 1))
 
 /*
 ** Iterator<Array>::Step
