@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_array.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angagnie <angagnie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rnugroho <rnugroho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/24 13:50:45 by angagnie          #+#    #+#             */
-/*   Updated: 2017/03/30 17:50:01 by angagnie         ###   ########.fr       */
+/*   Updated: 2018/02/17 14:41:22 by rnugroho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -397,10 +397,18 @@ void			fta_iteri2(const t_array *self, void (*f)(), void *a, void *b);
 /*
 ** Iterator<Array>::End
 ** -
-** Returns the end end of the array
+** Returns the end of the array
 */
 
 # define ARRAY_END(A) ((A)->data + (A)->size * (A)->type_size)
+
+/*
+** Iterator<Array>::End
+** -
+** Returns the end of the array
+*/
+
+# define ARRAY_LAST(A) ((A)->data + (A)->size * (A)->type_size - 1)
 
 /*
 ** Iterator<Array>::Step
