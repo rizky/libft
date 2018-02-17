@@ -1,9 +1,9 @@
 # ==== Editable ====
 NAME:=libft.a
 
-VECTORPATH:=ft_array/
-VECTOR:=fta_alloc fta_append fta_new fta_reserve fta_resize fta_trim \
-	fta_clear fta_clearf fta_popback fta_iter fta_iteri fta_popindex \
+FTAPATH:=ft_array/
+FTA:=fta_alloc fta_append fta_new fta_reserve fta_resize fta_trim \
+	fta_popback fta_popindex \
 	fta_swap fta_overwrite fta_string fta_replace
 
 FILES=ft_isdigit ft_lstdel ft_lstmerge ft_lstswap ft_memdel ft_putendl_fd ft_strchr ft_strequ ft_strmap ft_strnew ft_strsub\
@@ -34,7 +34,7 @@ WHITE:="\033[1;37m"
 # ==================
 
 # ====== Auto ======
-FILES+=$(addprefix $(VECTORPATH),$(VECTOR))
+FILES+=$(addprefix $(FTAPATH),$(FTA))
 
 SRC:=$(addprefix $(SRCPATH),$(addsuffix .c,$(FILES)))
 OBJ:=$(addprefix $(CCHPATH),$(addsuffix .o,$(FILES)))
@@ -59,7 +59,7 @@ $(CCHPATH)%.o: $(SRCPATH)%.c | $(CCHF)
 
 $(CCHF):
 	@mkdir $(CCHPATH)
-	@mkdir $(CCHPATH)$(VECTORPATH)
+	@mkdir $(CCHPATH)$(FTAPATH)
 	@touch $(CCHF)
 
 clean:

@@ -6,7 +6,7 @@
 /*   By: rnugroho <rnugroho@students.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/07 21:15:18 by rnugroho          #+#    #+#             */
-/*   Updated: 2018/02/07 21:24:01 by rnugroho         ###   ########.fr       */
+/*   Updated: 2018/02/14 20:05:08 by rnugroho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,10 @@ size_t		ft_wstrlen(const wchar_t *wstr)
 		ptr++;
 	return (ptr - wstr);
 }
+
+/*
+** https://www.cprogramming.com/tutorial/unicode.html
+*/
 
 size_t		ft_widetoa(char *buff, wint_t w)
 {
