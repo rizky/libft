@@ -6,7 +6,7 @@
 /*   By: rnugroho <rnugroho@students.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/07 21:15:18 by rnugroho          #+#    #+#             */
-/*   Updated: 2018/02/14 20:05:08 by rnugroho         ###   ########.fr       */
+/*   Updated: 2018/02/18 18:18:37 by rnugroho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,12 @@ size_t		ft_wstrlen(const wchar_t *wstr)
 
 size_t		ft_widetoa(char *buff, wint_t w)
 {
-	if (w < 0x80)
+	if (w < 0)
+	{
+		*buff = w;
+		return (1);
+	}
+	else if (w < 0x80)
 		return (NORMED);
 	else if (w < 0x800)
 	{
@@ -51,6 +56,11 @@ size_t		ft_widetoa(char *buff, wint_t w)
 		*(buff++) = ((w >> 6) & 0x3F) | 0x80;
 		*buff = ((w >> 0) & 0x3F) | 0x80;
 		return (4);
+	}
+	else if (w < 0)
+	{
+		*buff = w;
+		return (1);
 	}
 	return (0);
 }
