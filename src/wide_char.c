@@ -3,16 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   wide_char.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rnugroho <rnugroho@students.42.fr>         +#+  +:+       +#+        */
+/*   By: rnugroho <rnugroho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/07 21:15:18 by rnugroho          #+#    #+#             */
-/*   Updated: 2018/02/18 18:18:37 by rnugroho         ###   ########.fr       */
+/*   Updated: 2018/02/20 19:33:08 by rnugroho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_wchar.h"
-
-#define NORMED	((*buff = ((w & 0x7F) | 0)), 1)
 
 size_t		ft_wstrlen(const wchar_t *wstr)
 {
@@ -27,7 +25,7 @@ size_t		ft_wstrlen(const wchar_t *wstr)
 ** https://www.cprogramming.com/tutorial/unicode.html
 */
 
-size_t		ft_widetoa(char *buff, wint_t w)
+size_t		ft_widetoa_(char *buff, wint_t w)
 {
 	if (w < 0)
 	{
@@ -35,13 +33,27 @@ size_t		ft_widetoa(char *buff, wint_t w)
 		return (1);
 	}
 	else if (w < 0x80)
-		return (NORMED);
+	{
+		*buff = (w & 0x7f);
+		return (1);
+	}
 	else if (w < 0x800)
 	{
 		*(buff++) = ((w >> 6) & 0x1F) | 0xC0;
 		*buff = ((w >> 0) & 0x3F) | 0x80;
 		return (2);
 	}
+	else
+		return (0);
+}
+
+size_t		ft_widetoa(char *buff, wint_t w)
+{
+	int		result;
+
+	result = ft_widetoa_(buff, w);
+	if (result != 0)
+		return (result);
 	else if (w < 0x10000)
 	{
 		*(buff++) = ((w >> 12) & 0xF) | 0xE0;
@@ -56,11 +68,6 @@ size_t		ft_widetoa(char *buff, wint_t w)
 		*(buff++) = ((w >> 6) & 0x3F) | 0x80;
 		*buff = ((w >> 0) & 0x3F) | 0x80;
 		return (4);
-	}
-	else if (w < 0)
-	{
-		*buff = w;
-		return (1);
 	}
 	return (0);
 }
