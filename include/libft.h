@@ -6,7 +6,7 @@
 /*   By: rnugroho <rnugroho@students.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/17 17:38:44 by rnugroho          #+#    #+#             */
-/*   Updated: 2018/02/07 21:26:29 by rnugroho         ###   ########.fr       */
+/*   Updated: 2018/02/22 00:22:59 by rnugroho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,7 @@ void			ft_lstswap(t_list **begin_list,
 void			ft_lstsort(t_list **begin_list, int (*cmp)());
 void			ft_putlst(t_list *begin_lst);
 
+long int		ft_round_base(double x, double f, int b);
 /*
 ** Numbers manipulation tools
 */

@@ -6,7 +6,7 @@
 /*   By: rnugroho <rnugroho@students.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/04 18:17:19 by rnugroho          #+#    #+#             */
-/*   Updated: 2018/02/17 11:23:29 by rnugroho         ###   ########.fr       */
+/*   Updated: 2018/02/21 21:43:47 by rnugroho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@
 
 int		fta_trim(t_array *self)
 {
+	fta_append(self, "\0", 1);
 	if (self->size < self->max)
 		return (fta_resize(self, self->size));
 	return (0);
