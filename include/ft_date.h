@@ -6,7 +6,7 @@
 /*   By: rnugroho <rnugroho@students.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/23 16:52:07 by rnugroho          #+#    #+#             */
-/*   Updated: 2018/02/23 17:21:40 by rnugroho         ###   ########.fr       */
+/*   Updated: 2018/02/24 00:05:53 by rnugroho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@
 # define EPOCH_YEAR          1970
 # define IS_LEAP_YEAR_(year) (((year) % 4 == 0) && ((year) % 100 != 0))
 # define IS_LEAP_YEAR(year)	(IS_LEAP_YEAR_(year) || ((year) % 400 == 0))
+# define YEARSIZE(year)	(IS_LEAP_YEAR(year) ? 366 : 365)
 
-uint32_t	unix_time_in_seconds(uint8_t date[6]);
+long long	ft_datetoepoch(long date[6]);
+long		*ft_epochtodate(long long epoch);
 
 #endif
