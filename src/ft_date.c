@@ -6,7 +6,7 @@
 /*   By: rnugroho <rnugroho@students.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/23 16:50:22 by rnugroho          #+#    #+#             */
-/*   Updated: 2018/02/24 00:45:34 by rnugroho         ###   ########.fr       */
+/*   Updated: 2018/02/24 01:40:01 by rnugroho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,31 +24,27 @@ static const long g_days_per_year[2] = {
 long long
 	ft_datetoepoch(long date[6])
 {
-	long long	ts;
-	long		i;
-	long		j;
-	long		y_k;
+	long long epoch;
+	long years;
+	long leap_years;
+	int		i;
 
-	i = 0;
-	j = 0;
-	y_k = EPOCH_YEAR - 1;
-	while (y_k++ < date[5])
-		if (IS_LEAP_YEAR(y_k))
-			j++;
-		else
-			i++;
-	ts = ((i * g_days_per_year[0]) +
-		(j * g_days_per_year[1])) * SEC_PER_DAY;
-	j = (IS_LEAP_YEAR(date[5])) ? 1 : 0;
-	i = 0;
-	while (i < (date[4] - 1))
-	{
-		ts += g_days_per_month[j][i] * SEC_PER_DAY;
-		i++;
-	}
-	ts += (date[3] - 1) * SEC_PER_DAY + date[2] * SEC_PER_HOUR;
-	ts += date[1] * SEC_PER_MIN + date[0];
-	return (ts);
+	years = 0;
+	leap_years = 0;
+	i = EPOCH_YEAR - 1;
+	while (++i < date[5])
+		if (IS_LEAP_YEAR(i))
+			leap_years++;
+		else 
+			years++;
+	epoch = ((years*g_days_per_year[0]) + (leap_years*g_days_per_year[1])) * SEC_PER_DAY;
+	long year_index = (IS_LEAP_YEAR( date[5] )) ? 1 : 0;
+	i = -1;
+	while (++i < date[4]-1)
+		epoch += g_days_per_month[year_index][i] * SEC_PER_DAY;
+	epoch += (date[3]-1) * SEC_PER_DAY + date[2] * SEC_PER_HOUR
+	+ date[1] * SEC_PER_MIN + date[0];
+	return (epoch);
 }
 
 long
@@ -71,7 +67,7 @@ long
 			dayno -= YEARSIZE(year);
 			year++;
 	}
-	date[5] = year - 1;
+	date[5] = year;
 	date[4] = 0;
     while (dayno >= g_days_per_month[IS_LEAP_YEAR(year)][date[4]])
     {
@@ -79,6 +75,5 @@ long
         date[4]++;
     }
 	date[3] = dayno + 1;
-	date[4]++;
 	return date;
 }
