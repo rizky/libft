@@ -6,7 +6,7 @@
 /*   By: rnugroho <rnugroho@students.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/17 17:38:44 by rnugroho          #+#    #+#             */
-/*   Updated: 2018/02/23 17:12:31 by rnugroho         ###   ########.fr       */
+/*   Updated: 2018/02/25 01:44:44 by rnugroho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int				ft_isalpha(int c);
 int				ft_isascii(int c);
 int				ft_isdigit(int c);
 int				ft_isprint(int c);
+int				ft_ishexdigit(char c);
 void			*ft_memccpy(void *dst,
 				const void *src, int c, size_t n);
 void			*ft_memchr(const void *s, int c, size_t n);
@@ -77,7 +78,7 @@ char			*ft_strsub(char const *s, unsigned intstart, size_t len);
 char			*ft_strjoin(char const *s1, char const*s2);
 char			*ft_strtrim(char const *s);
 char			**ft_strsplit(char const *s, char c);
-char			*ft_itoa(int n);
+char			*ft_itoa(intmax_t n);
 void			ft_putchar(char c);
 void			ft_putstr(char const *s);
 void			ft_putendl(char const *s);

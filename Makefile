@@ -6,7 +6,7 @@ FTA:=fta_alloc fta_append fta_new fta_reserve fta_resize fta_trim \
 	fta_popback fta_popindex \
 	fta_swap fta_overwrite fta_string fta_replace
 
-FILES=ft_isdigit ft_lstdel ft_lstmerge ft_lstswap ft_memdel ft_putendl_fd ft_strchr ft_strequ ft_strmap ft_strnew ft_strsub\
+FILES=ft_isdigit ft_lstdel ft_lstmerge ft_lstswap ft_memdel ft_putendl_fd ft_strchr ft_strequ ft_strmap ft_strnew ft_strsub ft_ishexdigit\
 		ft_atoi ft_isprint ft_lstdelone ft_lstnew ft_memalloc ft_memmove ft_putnbr ft_strclr ft_striter ft_strmapi ft_strnstr ft_strtrim\
 		ft_bzero ft_itoa ft_lstfind ft_lstremoveif ft_memccpy ft_memset ft_putnbr_fd ft_strcmp ft_striteri ft_strncat ft_strrchr ft_tolower\
 		ft_isalnum ft_lstadd ft_lstiter ft_lstrev ft_memchr ft_putchar ft_putstr ft_strcpy ft_strjoin ft_strncmp ft_strsplit ft_toupper\

@@ -3,21 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rnugroho <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rnugroho <rnugroho@students.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 16:36:12 by rnugroho          #+#    #+#             */
-/*   Updated: 2017/11/14 16:36:12 by rnugroho         ###   ########.fr       */
+/*   Updated: 2018/02/24 13:29:51 by rnugroho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char			*ft_itoa(int n)
+char			*ft_itoa(intmax_t n)
 {
-	char	*str;
-	int		temp_n;
-	size_t	len;
-	char	sign;
+	char		*str;
+	intmax_t	temp_n;
+	size_t		len;
+	char		sign;
 
 	sign = (n < 0) ? -1 : 1;
 	len = 2 + (n < 0);
