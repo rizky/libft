@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fta_popback.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rnugroho <rnugroho@students.42.fr>         +#+  +:+       +#+        */
+/*   By: rnugroho <rnugroho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/07 20:08:29 by rnugroho          #+#    #+#             */
-/*   Updated: 2018/02/17 11:22:25 by rnugroho         ###   ########.fr       */
+/*   Updated: 2018/02/27 13:50:37 by rnugroho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@
 ** _len_ is the number of elements to be removed.
 */
 
-void	fta_popback(t_array *self, size_t len)
+void
+	fta_popback(t_array *self, size_t len)
 {
 	self->size -= _MIN2(len, self->size);
 }
@@ -37,12 +38,26 @@ void	fta_popback(t_array *self, size_t len)
 ** contents from its address.
 */
 
-void	fta_popbackf(t_array *self, size_t len, void (*del)(void *))
+void
+	fta_popbackf(t_array *self, size_t len, void (*del)(void *))
 {
 	while (self->size > 0 && len > 0)
 	{
 		self->size--;
 		del(ARRAY_END(self));
 		len--;
+	}
+}
+
+void
+	fta_popzero(t_array *self, int *ans)
+{
+	while (((ARRAY_LAST(self))[0] == '0' &&
+		(ft_isdigit((ARRAY_LAST(self) - 1)[0]) ||
+		(ARRAY_LAST(self) - 1)[0] == '.')) ||
+		(ARRAY_LAST(self))[0] == '.')
+	{
+		fta_popback(self, 1);
+		ans--;
 	}
 }
