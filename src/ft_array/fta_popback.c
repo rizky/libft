@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fta_popback.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rnugroho <rnugroho@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rnugroho <rnugroho@students.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/07 20:08:29 by rnugroho          #+#    #+#             */
-/*   Updated: 2018/02/27 13:50:37 by rnugroho         ###   ########.fr       */
+/*   Updated: 2018/03/01 00:22:37 by rnugroho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,19 @@ void
 		(ARRAY_LAST(self))[0] == '.')
 	{
 		fta_popback(self, 1);
+		ans--;
+	}
+}
+
+void
+	fta_popzerohex(t_array *d, int *ans)
+{
+	while (((ARRAY_LAST(d))[0] == '0' &&
+		(ft_ishexdigit((ARRAY_LAST(d) - 1)[0]) ||
+		(ARRAY_LAST(d) - 1)[0] == '.')) ||
+		(ARRAY_LAST(d))[0] == '.')
+	{
+		fta_popback(d, 1);
 		ans--;
 	}
 }

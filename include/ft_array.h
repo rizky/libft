@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_array.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rnugroho <rnugroho@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rnugroho <rnugroho@students.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/24 13:50:45 by rnugroho          #+#    #+#             */
-/*   Updated: 2018/02/27 13:46:25 by rnugroho         ###   ########.fr       */
+/*   Updated: 2018/03/01 00:23:12 by rnugroho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -167,6 +167,16 @@ void			fta_popback(t_array *self, size_t len);
 */
 
 void			fta_popzero(t_array *self, int *ans);
+
+/*
+** Array::pop_zero
+** -
+** Removes all zero from the end for hex
+** -
+** ans total size after remove
+*/
+
+void			fta_popzerohex(t_array *self, int *ans);
 
 /*
 ** Array::pop_back w/ function
