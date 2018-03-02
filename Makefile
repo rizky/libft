@@ -6,6 +6,15 @@ FTA:=fta_alloc fta_append fta_new fta_reserve fta_resize fta_trim \
 	fta_popback fta_popindex \
 	fta_swap fta_overwrite fta_string fta_replace
 
+FTPFPATH:=ft_printf/
+FTPF:=ft_printf ft_vprintf ft_vasprintf ft_convert \
+		ft_convert_numeric_1 ft_convert_numeric_2 ft_convert_numeric_3 \
+		ft_convert_char \
+		ft_convert_double_1 ft_convert_double_2 ft_convert_double_3 \
+		ft_convert_color \
+		ft_convert_date \
+		ft_convert_data ft_convert_memory
+
 FILES=ft_isdigit ft_lstdel ft_lstmerge ft_lstswap ft_memdel ft_putendl_fd ft_strchr ft_strequ ft_strmap ft_strnew ft_strsub ft_ishexdigit\
 		ft_atoi ft_isprint ft_lstdelone ft_lstnew ft_memalloc ft_memmove ft_putnbr ft_strclr ft_striter ft_strmapi ft_strnstr ft_strtrim\
 		ft_bzero ft_itoa ft_lstfind ft_lstremoveif ft_memccpy ft_memset ft_putnbr_fd ft_strcmp ft_striteri ft_strncat ft_strrchr ft_tolower\
@@ -36,6 +45,7 @@ WHITE:="\033[1;37m"
 
 # ====== Auto ======
 FILES+=$(addprefix $(FTAPATH),$(FTA))
+FILES+=$(addprefix $(FTPFPATH),$(FTPF))
 
 SRC:=$(addprefix $(SRCPATH),$(addsuffix .c,$(FILES)))
 OBJ:=$(addprefix $(CCHPATH),$(addsuffix .o,$(FILES)))
@@ -61,6 +71,7 @@ $(CCHPATH)%.o: $(SRCPATH)%.c | $(CCHF)
 $(CCHF):
 	@mkdir $(CCHPATH)
 	@mkdir $(CCHPATH)$(FTAPATH)
+	@mkdir $(CCHPATH)$(FTPFPATH)
 	@touch $(CCHF)
 
 clean:

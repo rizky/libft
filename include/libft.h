@@ -6,7 +6,7 @@
 /*   By: rnugroho <rnugroho@students.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/17 17:38:44 by rnugroho          #+#    #+#             */
-/*   Updated: 2018/03/01 22:05:50 by rnugroho         ###   ########.fr       */
+/*   Updated: 2018/03/02 16:24:31 by rnugroho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include "ft_wchar.h"
 # include "ft_date.h"
 # include "get_next_line.h"
+# include "ft_printf.h"
 
 typedef struct	s_list
 {
