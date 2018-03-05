@@ -6,7 +6,7 @@
 /*   By: rnugroho <rnugroho@students.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/24 13:50:45 by rnugroho          #+#    #+#             */
-/*   Updated: 2018/03/01 00:23:12 by rnugroho         ###   ########.fr       */
+/*   Updated: 2018/03/05 22:27:35 by rnugroho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -443,4 +443,13 @@ int				fta_resize(t_array *self, size_t new_size);
 
 void			fta_swap(t_array *self, size_t before, size_t after);
 
+/*
+** Array::clear
+** -
+** Frees the underlying data, but leaves the array usable :
+** one might still call the append function, the array was only
+** emptied.
+*/
+
+void			fta_clear(t_array *self);
 #endif
