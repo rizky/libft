@@ -6,7 +6,7 @@
 /*   By: rnugroho <rnugroho@students.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/17 17:38:44 by rnugroho          #+#    #+#             */
-/*   Updated: 2018/03/02 16:24:31 by rnugroho         ###   ########.fr       */
+/*   Updated: 2018/03/07 02:08:49 by rnugroho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,4 +123,11 @@ double			ft_modf(double num);
 # define MIN(X, Y) (((X) < (Y)) ? (X) : (Y))
 # define _MIN2(A,B) ((A) < (B) ? (A) : (B))
 
+/*
+** Numbers manipulation tools
+*/
+
+# define EOC 0
+# define RED 1
+# define GREEN 2
 #endif
