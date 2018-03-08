@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fta_resize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rnugroho <rnugroho@students.42.fr>         +#+  +:+       +#+        */
+/*   By: rnugroho <rnugroho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/10 15:08:29 by rnugroho          #+#    #+#             */
-/*   Updated: 2018/02/17 11:22:59 by rnugroho         ###   ########.fr       */
+/*   Updated: 2018/03/08 20:22:29 by rnugroho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,6 @@ int		fta_resize(t_array *self, size_t new_size)
 	free(self->data);
 	self->data = tmp;
 	self->max = new_size;
+	free(tmp);
 	return (0);
 }
