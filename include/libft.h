@@ -6,7 +6,7 @@
 /*   By: rnugroho <rnugroho@students.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/17 17:38:44 by rnugroho          #+#    #+#             */
-/*   Updated: 2018/03/07 02:08:49 by rnugroho         ###   ########.fr       */
+/*   Updated: 2018/03/12 00:20:48 by rnugroho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ char			*ft_strsub(char const *s, unsigned intstart, size_t len);
 char			*ft_strjoin(char const *s1, char const*s2);
 char			*ft_strtrim(char const *s);
 char			**ft_strsplit(char const *s, char c);
+int				ft_wordcounter(const char *str, char c);
 char			*ft_itoa(intmax_t n);
 void			ft_putchar(char c);
 void			ft_putstr(char const *s);

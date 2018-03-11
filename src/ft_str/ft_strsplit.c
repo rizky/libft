@@ -6,13 +6,14 @@
 /*   By: rnugroho <rnugroho@students.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 16:46:15 by rnugroho          #+#    #+#             */
-/*   Updated: 2018/02/24 20:48:22 by rnugroho         ###   ########.fr       */
+/*   Updated: 2018/03/12 00:20:24 by rnugroho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		ft_wordcounter(const char *str, char c)
+int
+	ft_wordcounter(const char *str, char c)
 {
 	int		i;
 	int		wcount;
@@ -35,8 +36,9 @@ static int		ft_wordcounter(const char *str, char c)
 	return (wcount);
 }
 
-static char		**ft_word_extractor(const char *str,
-				char **strtab, size_t v[4], char c)
+static char
+	**ft_word_extractor(const char *str,
+	char **strtab, size_t v[4], char c)
 {
 	while (v[0] <= ft_strlen(str))
 	{
@@ -65,7 +67,8 @@ static char		**ft_word_extractor(const char *str,
 	return (strtab);
 }
 
-char			**ft_strsplit(char const *s, char c)
+char
+	**ft_strsplit(char const *s, char c)
 {
 	char	**strtab;
 	size_t	v[4];
