@@ -6,7 +6,7 @@
 /*   By: rnugroho <rnugroho@students.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 16:46:15 by rnugroho          #+#    #+#             */
-/*   Updated: 2018/03/12 00:20:24 by rnugroho         ###   ########.fr       */
+/*   Updated: 2018/03/12 00:51:39 by rnugroho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,4 +84,15 @@ char
 		return (NULL);
 	strtab = ft_word_extractor(s, strtab, v, c);
 	return (strtab);
+}
+
+void
+	ft_strtab_free(char **strtab)
+{
+	int		i;
+
+	i = -1;
+	while (strtab[++i] != NULL)
+		free(strtab[i]);
+	free(strtab);
 }
