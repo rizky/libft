@@ -6,7 +6,7 @@
 /*   By: rnugroho <rnugroho@students.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/13 04:19:28 by rnugroho          #+#    #+#             */
-/*   Updated: 2018/03/13 04:28:36 by rnugroho         ###   ########.fr       */
+/*   Updated: 2018/03/13 15:47:01 by rnugroho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,6 @@ void	fta_printdata_int(t_array v)
 	{
 		ft_printf("%d ", ((int*)v.data)[i]);
 		i++;
-	}	
+	}
+	ft_printf("\n");
 }
