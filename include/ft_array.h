@@ -6,7 +6,7 @@
 /*   By: rnugroho <rnugroho@students.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/24 13:50:45 by rnugroho          #+#    #+#             */
-/*   Updated: 2018/03/05 22:27:35 by rnugroho         ###   ########.fr       */
+/*   Updated: 2018/03/13 04:28:50 by rnugroho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -452,4 +452,12 @@ void			fta_swap(t_array *self, size_t before, size_t after);
 */
 
 void			fta_clear(t_array *self);
+
+/*
+** Array::printdata
+** -
+** Print contents of t_array with data type int
+*/
+
+void			fta_printdata_int(t_array v);
 #endif
