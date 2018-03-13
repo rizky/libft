@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rnugroho <rnugroho@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rnugroho <rnugroho@students.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/03 18:36:26 by rnugroho          #+#    #+#             */
-/*   Updated: 2018/03/01 14:39:40 by rnugroho         ###   ########.fr       */
+/*   Updated: 2018/03/14 00:38:49 by rnugroho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,5 +106,6 @@ int					pf_cv_r(t_modifier *m, t_array *d, va_list ap);
 int					pf_cv_q(t_modifier *m, t_array *d, va_list ap);
 int					pf_cv_m(t_modifier *m, t_array *d, va_list ap);
 int					pf_cv_cq(t_modifier *m, t_array *d, va_list ap);
+int					pf_cv_v(t_modifier *m, t_array *d, va_list ap);
 int					pf_culturization(t_array *d, char c);
 #endif
