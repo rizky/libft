@@ -6,7 +6,7 @@
 /*   By: rnugroho <rnugroho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/17 17:38:44 by rnugroho          #+#    #+#             */
-/*   Updated: 2018/03/15 17:52:27 by rnugroho         ###   ########.fr       */
+/*   Updated: 2018/03/15 17:53:51 by rnugroho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ typedef struct	s_list
 t_list			*ft_create_elem(void *data);
 
 int				ft_atoi(const char *str);
-int				ft_atol(const char *str);
-int				ft_atoll(const char *str);
+long			ft_atol(const char *str);
+long long		ft_atoll(const char *str);
 void			ft_bzero(void *s, size_t n);
 int				ft_isalnum(int c);
 int				ft_isalpha(int c);
