@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_convert_color.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rnugroho <rnugroho@students.42.fr>         +#+  +:+       +#+        */
+/*   By: rnugroho <rnugroho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/18 22:27:14 by rnugroho          #+#    #+#             */
-/*   Updated: 2018/03/14 00:37:53 by rnugroho         ###   ########.fr       */
+/*   Updated: 2018/03/15 20:56:13 by rnugroho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ int
 	pf_cv_cw(t_modifier *m, t_array *d, va_list ap)
 {
 	int		index;
+	char	*value;
 
 	(void)ap;
 	index = m->size;
@@ -48,8 +49,10 @@ int
 		index += 30;
 	fta_append(d, "\e[", 2);
 	fta_append(d, "1;", 2);
-	fta_append(d, ft_itoa(index), ft_strlen(ft_itoa(index)));
+	value = ft_itoa(index);
+	fta_append(d, value, ft_strlen(value));
 	fta_append(d, "m", 1);
+	free(value);
 	return (1);
 }
 
@@ -69,6 +72,7 @@ int
 	value = ft_itoa(row);
 	fta_append(d, value, ft_strlen(value));
 	fta_append(d, ";", 1);
+	free(value);
 	value = ft_itoa(col);
 	fta_append(d, value, ft_strlen(value));
 	fta_append(d, "H", 1);
