@@ -6,7 +6,7 @@
 /*   By: rnugroho <rnugroho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/27 18:00:07 by rnugroho          #+#    #+#             */
-/*   Updated: 2018/03/16 18:50:27 by rnugroho         ###   ########.fr       */
+/*   Updated: 2018/03/16 18:53:23 by rnugroho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,14 +64,14 @@ int		get_next_line(int fd, char **line)
 	while ((ret = read(fd, buf, BUFF_SIZE)))
 	{
 		buf[ret] = '\0';
-		ALLOCATED((CONTENT(file) = ft_strjoin(CONTENT(file), buf)));
-		free(START(file));
-		START(file) = CONTENT(file);
-		if (ft_strchr(CONTENT(file), '\n'))
+		ALLOCATED((GNL_CONTENT(file) = ft_strjoin(GNL_CONTENT(file), buf)));
+		free(GNL_START(file));
+		GNL_START(file) = GNL_CONTENT(file);
+		if (ft_strchr(GNL_CONTENT(file), '\n'))
 			break ;
 	}
-	if (ret < BUFF_SIZE && !ft_strlen(CONTENT(file)))
+	if (ret < BUFF_SIZE && !ft_strlen(GNL_CONTENT(file)))
 		return (0);
-	ALLOCATED((*line = retrive_line(&CONTENT(file))));
+	ALLOCATED((*line = retrive_line(&GNL_CONTENT(file))));
 	return (1);
 }

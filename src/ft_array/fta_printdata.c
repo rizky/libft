@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   fta_printdata.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rnugroho <rnugroho@students.42.fr>         +#+  +:+       +#+        */
+/*   By: rnugroho <rnugroho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/14 16:35:56 by rnugroho          #+#    #+#             */
-/*   Updated: 2018/03/13 02:24:02 by rnugroho         ###   ########.fr       */
+/*   Created: 2018/03/13 04:19:28 by rnugroho          #+#    #+#             */
+/*   Updated: 2018/03/16 15:39:38 by rnugroho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_array.h"
 #include "libft.h"
 
-int		ft_isprint(int c)
+void	fta_printdata_int(t_array *v)
 {
-	if ((unsigned int)c >= ' ' && (unsigned int)c <= '~')
-		return (1);
-	else
-		return (0);
-}
+	int i;
 
-int		ft_isspace(int c)
-{
-	if (c == ' ' || c == '\t' || c == '\n')
-		return (1);
-	else if (c == '\v' || c == '\f' || c == '\r')
-		return (1);
-	return (0);
+	i = 0;
+	while (i < (int)v->size)
+	{
+		ft_printf("%d ", ((int*)v->data)[i]);
+		i++;
+	}
+	ft_printf("\n");
 }

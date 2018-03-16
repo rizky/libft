@@ -4,7 +4,7 @@ NAME:= libft.a
 FTAPATH:= ft_array/
 FTA:= fta_alloc fta_append fta_new fta_reserve fta_resize fta_trim \
 	fta_popback fta_popindex fta_clear fta_string fta_replace \
-	fta_swap fta_overwrite
+	fta_swap fta_overwrite fta_printdata
 
 FTPFPATH:= ft_printf/
 FTPF:= ft_printf ft_vprintf ft_vasprintf ft_convert \
