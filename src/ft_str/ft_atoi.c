@@ -6,13 +6,14 @@
 /*   By: rnugroho <rnugroho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 16:34:49 by rnugroho          #+#    #+#             */
-/*   Updated: 2018/03/15 17:52:01 by rnugroho         ###   ########.fr       */
+/*   Updated: 2018/03/16 15:39:17 by rnugroho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_atoi(const char *str)
+int
+	ft_atoi(const char *str)
 {
 	long	value;
 	int		sign;
@@ -35,7 +36,8 @@ int		ft_atoi(const char *str)
 	return (value * sign);
 }
 
-long	ft_atol(const char *str)
+long
+	ft_atol(const char *str)
 {
 	size_t	i;
 	long	n;
@@ -62,7 +64,8 @@ long	ft_atol(const char *str)
 	return (result * n);
 }
 
-long long	ft_atoll(const char *str)
+long long
+	ft_atoll(const char *str)
 {
 	size_t		i;
 	long long	n;
