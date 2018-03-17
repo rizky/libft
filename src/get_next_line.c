@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rnugroho <rnugroho@students.42.fr>         +#+  +:+       +#+        */
+/*   By: rnugroho <rnugroho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/27 18:00:07 by rnugroho          #+#    #+#             */
-/*   Updated: 2018/03/13 02:25:27 by rnugroho         ###   ########.fr       */
+/*   Updated: 2018/03/16 18:53:23 by rnugroho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int		get_next_line(int fd, char **line)
 	{
 		buf[ret] = '\0';
 		ALLOCATED((GNL_CONTENT(file) = ft_strjoin(GNL_CONTENT(file), buf)));
-		ft_strdel(&(GNL_START(file)));
+		free(GNL_START(file));
 		GNL_START(file) = GNL_CONTENT(file);
 		if (ft_strchr(GNL_CONTENT(file), '\n'))
 			break ;
