@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   fta_clear.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rnugroho <rnugroho@students.42.fr>         +#+  +:+       +#+        */
+/*   By: rnugroho <rnugroho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/27 17:59:52 by rnugroho          #+#    #+#             */
-/*   Updated: 2018/02/27 18:11:48 by rnugroho         ###   ########.fr       */
+/*   Updated: 2018/03/21 16:21:32 by rnugroho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_array.h"
 #include <stdlib.h>
+#include "ft_array.h"
 
 /*
 ** Array::clear

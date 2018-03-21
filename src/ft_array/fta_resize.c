@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   fta_resize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rnugroho <rnugroho@students.42.fr>         +#+  +:+       +#+        */
+/*   By: rnugroho <rnugroho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/10 15:08:29 by rnugroho          #+#    #+#             */
-/*   Updated: 2018/03/09 05:26:45 by rnugroho         ###   ########.fr       */
+/*   Updated: 2018/03/21 16:21:00 by rnugroho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_array.h"
 #include "libft.h"
-#include <stdlib.h>
 
 /*
 ** Array::_resize

@@ -6,12 +6,12 @@
 /*   By: rnugroho <rnugroho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/04 17:21:32 by rnugroho          #+#    #+#             */
-/*   Updated: 2018/02/17 14:45:34 by rnugroho         ###   ########.fr       */
+/*   Updated: 2018/03/21 16:21:25 by rnugroho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_array.h"
 #include <stdlib.h>
+#include "ft_array.h"
 
 /*
 ** Array::alloc

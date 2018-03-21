@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   fta_release.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rnugroho <rnugroho@students.42.fr>         +#+  +:+       +#+        */
+/*   By: rnugroho <rnugroho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/08 12:09:07 by rnugroho          #+#    #+#             */
-/*   Updated: 2018/02/17 11:22:32 by rnugroho         ###   ########.fr       */
+/*   Updated: 2018/03/21 16:21:40 by rnugroho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_array.h"
 #include <stdlib.h>
+#include "ft_array.h"
 
 /*
 ** Array::release
