@@ -110,9 +110,6 @@ fclean: clean
 re: fclean
 	@$(MAKE) all
 
-test:
-	@echo "Files :" $(FILES)
-
 norm:
 	@echo $(RED)
 	@norminette $(SRC) $(HDRPATH) | grep -v Norme -B1 || true
