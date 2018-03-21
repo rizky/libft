@@ -6,7 +6,7 @@
 /*   By: rnugroho <rnugroho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/24 13:50:45 by rnugroho          #+#    #+#             */
-/*   Updated: 2018/03/15 15:54:58 by rnugroho         ###   ########.fr       */
+/*   Updated: 2018/03/21 21:29:39 by rnugroho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,22 @@ t_array			*fta_alloc(size_t type_size);
 */
 
 int				fta_append(t_array *self, void const *data, size_t datalen);
+
+/*
+** Array::apppend_char
+** -
+** Could be called "add all" like in Java.
+** Adds 1 elements to _self_.
+** May fail if malloc does.
+** -
+** _data_ should be a variable of type char
+** -
+** Returns a status :
+** 0 in case of success,
+** 1 if malloc failed.
+*/
+
+int				fta_append_char(t_array *self, char data);
 
 /*
 ** Array::insert
