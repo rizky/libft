@@ -6,7 +6,7 @@
 /*   By: rnugroho <rnugroho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/13 15:24:05 by rnugroho          #+#    #+#             */
-/*   Updated: 2018/04/13 15:45:57 by rnugroho         ###   ########.fr       */
+/*   Updated: 2018/04/13 17:22:19 by rnugroho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,4 +66,5 @@ int 	ismetachar(char c);
 int		ft_re_matchn(const char* pattern, const char* text, int len);
 char	*ft_re_match_capture(const char *pattern, const char *group,
 		const char *text);
+char	*ft_re_capture(const char *group, const char *text);
 #endif
