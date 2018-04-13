@@ -37,6 +37,9 @@ FTSTR:= ft_strchr ft_strequ ft_strmap ft_strnew ft_strsub ft_strclr ft_striter f
 FTWCHARPATH:= ft_wchar/
 FTWCHAR:= wide_char
 
+FTREPATH:= ft_re/
+FTRE:= ft_re ft_re_match_1 ft_re_match_2 ft_re_match_3
+
 FILES:= ft_date get_next_line
 
 # ==================
@@ -67,6 +70,7 @@ FILES+=$(addprefix $(FTMEMPATH),$(FTMEM))
 FILES+=$(addprefix $(FTSTRPATH),$(FTSTR))
 FILES+=$(addprefix $(FTWCHARPATH),$(FTWCHAR))
 FILES+=$(addprefix $(FTPFPATH),$(FTPF))
+FILES+=$(addprefix $(FTREPATH),$(FTRE))
 
 SRC:=$(addprefix $(SRCPATH),$(addsuffix .c,$(FILES)))
 OBJ:=$(addprefix $(CCHPATH),$(addsuffix .o,$(FILES)))
@@ -98,6 +102,7 @@ $(CCHF):
 	@mkdir $(CCHPATH)$(FTMEMPATH)
 	@mkdir $(CCHPATH)$(FTSTRPATH)
 	@mkdir $(CCHPATH)$(FTWCHARPATH)
+	@mkdir $(CCHPATH)$(FTREPATH)
 	@touch $(CCHF)
 
 clean:
