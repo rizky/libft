@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_re.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rnugroho <rnugroho@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/04/13 15:22:05 by rnugroho          #+#    #+#             */
+/*   Updated: 2018/04/13 15:22:46 by rnugroho         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_re.h"
 
 static regex_t	re_compiled[MAX_REGEXP_OBJECTS];
@@ -35,7 +47,7 @@ static int
 	{
 		re_compiled[j].type = INV_CHAR_CLASS;
 		(*i)++;
-	}	
+	}
 	else
 		re_compiled[j].type = CHAR_CLASS;
 	while ((pattern[(*i)] != ']')
