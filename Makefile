@@ -38,7 +38,7 @@ FTWCHARPATH:= ft_wchar/
 FTWCHAR:= wide_char
 
 FTREPATH:= ft_re/
-FTRE:= ft_re ft_re_match_1 ft_re_match_2 ft_re_match_3
+FTRE:= ft_re ft_re_match_1 ft_re_match_2 ft_re_match_3 ft_re_match_4
 
 FILES:= ft_date get_next_line
 

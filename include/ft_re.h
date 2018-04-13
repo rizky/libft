@@ -6,11 +6,12 @@
 /*   By: rnugroho <rnugroho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/13 15:24:05 by rnugroho          #+#    #+#             */
-/*   Updated: 2018/04/13 15:24:14 by rnugroho         ###   ########.fr       */
+/*   Updated: 2018/04/13 15:45:57 by rnugroho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_RE
+#ifndef FT_RE_H
+# define FT_RE_H
 
 # define MAX_REGEXP_OBJECTS 30
 # define MAX_CHAR_CLASS_LEN 40
@@ -62,5 +63,7 @@ int 	matchwhitespace(char c);
 int 	matchmetachar(char c, const char* str);
 int 	matchrange(char c, const char* str);
 int 	ismetachar(char c);
-
+int		ft_re_matchn(const char* pattern, const char* text, int len);
+char	*ft_re_match_capture(const char *pattern, const char *group,
+		const char *text);
 #endif
