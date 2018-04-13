@@ -6,7 +6,7 @@
 /*   By: rnugroho <rnugroho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/13 15:22:05 by rnugroho          #+#    #+#             */
-/*   Updated: 2018/04/13 15:22:46 by rnugroho         ###   ########.fr       */
+/*   Updated: 2018/04/13 15:38:28 by rnugroho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ static int
 }
 
 static int
-	compile_symbols(char c, int j)
+	compile_simple_symbols(char c, int j)
 {
 	if (c == '^')
 		re_compiled[j].type = BEGIN;
@@ -95,11 +95,11 @@ re_t
 
 	ccl_bufidx = 1;
 	i = -1;
-	j = 0;
-	while (pattern[++i] != '\0' && (j + 1 < MAX_REGEXP_OBJECTS))
+	j = -1;
+	while (pattern[++i] != '\0' && (++j + 1 < MAX_REGEXP_OBJECTS))
 	{
 		c = pattern[i];
-		if (compile_symbols(c, j))
+		if (compile_simple_symbols(c, j))
 			(void)0;
 		else if (c == '\\')
 			(pattern[i + 1] != '\0') ? compile_slash(pattern[++i], j) : 0;
@@ -110,8 +110,7 @@ re_t
 			re_compiled[j].type = CHAR;
 			re_compiled[j].ch = c;
 		}
-		j++;
 	}
-	re_compiled[j].type = UNUSED;
+	re_compiled[j + 1].type = UNUSED;
 	return ((re_t)re_compiled);
 }
