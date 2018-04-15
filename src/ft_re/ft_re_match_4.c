@@ -6,7 +6,7 @@
 /*   By: rnugroho <rnugroho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/13 15:41:46 by rnugroho          #+#    #+#             */
-/*   Updated: 2018/04/15 12:28:24 by rnugroho         ###   ########.fr       */
+/*   Updated: 2018/04/15 16:31:31 by rnugroho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ char
 	char 	*str;
 	char	*temp;
 
+	if (text == NULL)
+		return (NULL);
 	start = ft_re_match(group, text);
 	text = text + start;
 	len = ft_strlen(text);
@@ -61,6 +63,8 @@ char
 	while (len > 0 && ft_re_matchn(temp, text, len) != 0)
 		len--;
 	free(temp);
+	if (len == 0)
+		return (NULL);
 	str = ft_memalloc(len + 1);
 	ft_memcpy(str, text, len);
 	str[len] = '\0';
