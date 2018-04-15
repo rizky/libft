@@ -6,7 +6,7 @@
 /*   By: rnugroho <rnugroho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/04 17:53:40 by rnugroho          #+#    #+#             */
-/*   Updated: 2018/03/21 22:23:04 by rnugroho         ###   ########.fr       */
+/*   Updated: 2018/04/15 21:12:10 by rnugroho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,31 @@ int		fta_append(t_array *self, void const *data, size_t datalen)
 		return (1);
 	ft_memcpy(ARRAY_END(self), data, ARRAY_OFFSET(self, datalen));
 	self->size += datalen;
+	return (0);
+}
+
+/*
+** Array::apppend_free
+** -
+** Could be called "add all" like in Java.
+** Adds _datalen_ elements to _self_. then free _data_
+** May fail if malloc does.
+** -
+** _data_ should be a variable of type T* casted to void*.
+** _datalen_ should be the number of elements stored in _data_.
+** -
+** Returns a status :
+** 0 in case of success,
+** 1 if malloc failed.
+*/
+
+int		fta_append_free(t_array *self, void *data, size_t datalen)
+{
+	if (fta_reserve(self, datalen))
+		return (1);
+	ft_memcpy(ARRAY_END(self), data, ARRAY_OFFSET(self, datalen));
+	self->size += datalen;
+	free(data);
 	return (0);
 }
 

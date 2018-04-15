@@ -6,7 +6,7 @@
 /*   By: rnugroho <rnugroho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/24 13:50:45 by rnugroho          #+#    #+#             */
-/*   Updated: 2018/03/21 21:29:39 by rnugroho         ###   ########.fr       */
+/*   Updated: 2018/04/15 21:12:15 by rnugroho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,23 @@ t_array			*fta_alloc(size_t type_size);
 */
 
 int				fta_append(t_array *self, void const *data, size_t datalen);
+
+/*
+** Array::apppend_free
+** -
+** Could be called "add all" like in Java.
+** Adds _datalen_ elements to _self_. then free _data_
+** May fail if malloc does.
+** -
+** _data_ should be a variable of type T* casted to void*.
+** _datalen_ should be the number of elements stored in _data_.
+** -
+** Returns a status :
+** 0 in case of success,
+** 1 if malloc failed.
+*/
+
+int				fta_append_free(t_array *self, void *data, size_t datalen);
 
 /*
 ** Array::apppend_char
