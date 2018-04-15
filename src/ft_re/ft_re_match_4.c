@@ -6,7 +6,7 @@
 /*   By: rnugroho <rnugroho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/13 15:41:46 by rnugroho          #+#    #+#             */
-/*   Updated: 2018/04/13 17:22:22 by rnugroho         ###   ########.fr       */
+/*   Updated: 2018/04/15 12:28:24 by rnugroho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ char
 	temp = ft_memalloc(ft_strlen(group) + 2);
 	ft_memcpy(temp, group, ft_strlen(group));
 	temp[ft_strlen(group)] = '$';
-	temp[ft_strlen(group) + 1] = '\0';	
+	temp[ft_strlen(group) + 1] = '\0';
 	while (len > 0 && ft_re_matchn(temp, text, len) != 0)
 		len--;
 	free(temp);
@@ -57,7 +57,7 @@ char
 	temp = ft_memalloc(ft_strlen(group) + 2);
 	ft_memcpy(temp, group, ft_strlen(group));
 	temp[ft_strlen(group)] = '$';
-	temp[ft_strlen(group) + 1] = '\0';	
+	temp[ft_strlen(group) + 1] = '\0';
 	while (len > 0 && ft_re_matchn(temp, text, len) != 0)
 		len--;
 	free(temp);
