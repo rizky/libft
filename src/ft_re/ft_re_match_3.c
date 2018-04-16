@@ -6,7 +6,7 @@
 /*   By: rnugroho <rnugroho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/13 15:22:11 by rnugroho          #+#    #+#             */
-/*   Updated: 2018/04/13 15:22:12 by rnugroho         ###   ########.fr       */
+/*   Updated: 2018/04/16 22:27:02 by rnugroho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 int
 	ft_re_match(const char* pattern, const char* text)
 {
+	if (!text)
+		return (-1);
 	return (ft_re_matchp(ft_re_compile(pattern), text));
 }
 
@@ -23,6 +25,8 @@ int
 {
 	int idx;
 
+	if (!text)
+		return (-1);
 	if (pattern != 0)
 	{
 		if (pattern[0].type == BEGIN)
