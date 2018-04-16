@@ -6,7 +6,7 @@
 /*   By: rnugroho <rnugroho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/13 15:41:46 by rnugroho          #+#    #+#             */
-/*   Updated: 2018/04/16 09:28:36 by rnugroho         ###   ########.fr       */
+/*   Updated: 2018/04/16 14:50:19 by rnugroho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char
 {
 	char 	*str;
 
+	if (text == NULL)
+		return (NULL);
 	if (ft_re_match(pattern, text) == -1)
 		return NULL;
 	str = ft_re_capture(group, text);
