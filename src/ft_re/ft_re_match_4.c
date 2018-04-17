@@ -6,7 +6,7 @@
 /*   By: rnugroho <rnugroho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/13 15:41:46 by rnugroho          #+#    #+#             */
-/*   Updated: 2018/04/16 14:50:19 by rnugroho         ###   ########.fr       */
+/*   Updated: 2018/04/17 22:38:43 by rnugroho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,4 +69,12 @@ int
 	res = ft_re_matchp(ft_re_compile(pattern), str);
 	free(str);
 	return (res);
+}
+
+int
+	matchunused(regex_t p, regex_t* pattern, const char* text)
+{
+	if ((text[0] != '\0') && matchone(p, *text))
+		matchpattern(pattern, text);
+	return (1);
 }

@@ -6,18 +6,20 @@
 /*   By: rnugroho <rnugroho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/13 15:22:19 by rnugroho          #+#    #+#             */
-/*   Updated: 2018/04/17 17:54:35 by rnugroho         ###   ########.fr       */
+/*   Updated: 2018/04/17 22:39:09 by rnugroho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_re.h"
 
-int ismetachar(char c)
+int
+	ismetachar(char c)
 {
 	return ((c == 's') || (c == 'S') == (c == 'w')
 			|| (c == 'W') || (c == 'd') || (c == 'D'));
 }
-int matchmetachar(char c, const char* str)
+int
+	matchmetachar(char c, const char* str)
 {
 	if (str[0] == 'd')
 		return (matchdigit(c));
@@ -34,7 +36,8 @@ int matchmetachar(char c, const char* str)
 	return (c == str[0]);
 }
 
-int matchcharclass(char c, const char* str)
+int
+	matchcharclass(char c, const char* str)
 {
 	while (*str != '\0' && *str != ']')
 	{
@@ -60,7 +63,8 @@ int matchcharclass(char c, const char* str)
 	return (0);
 }
 
-int matchone(regex_t p, char c)
+int
+	matchone(regex_t p, char c)
 {
 	if (p.type == DOT)
 		return (1);
@@ -83,7 +87,8 @@ int matchone(regex_t p, char c)
 	return (p.ch == c);
 }
 
-int matchstar(regex_t p, regex_t* pattern, const char* text)
+int
+	matchstar(regex_t p, regex_t* pattern, const char* text)
 {
 	while (1)
 	{
