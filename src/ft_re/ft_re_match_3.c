@@ -6,7 +6,7 @@
 /*   By: rnugroho <rnugroho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/13 15:22:11 by rnugroho          #+#    #+#             */
-/*   Updated: 2018/04/16 22:27:02 by rnugroho         ###   ########.fr       */
+/*   Updated: 2018/04/17 22:38:55 by rnugroho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ int
 	return (-1);
 }
 
-int matchplus(regex_t p, regex_t* pattern, const char* text)
+int
+	matchplus(regex_t p, regex_t* pattern, const char* text)
 {
 	while ((text[0] != '\0') && matchone(p, *text++))
 		if (matchpattern(pattern, text))
@@ -54,19 +55,25 @@ int matchplus(regex_t p, regex_t* pattern, const char* text)
 	return (0);
 }
 
-int matchquestion(regex_t p, regex_t* pattern, const char* text)
+int
+	matchquestion(regex_t p, regex_t* pattern, const char* text)
 {
-	if ((text[0] != '\0') && matchone(p, *text++))
-		matchpattern(pattern, text);
-	return (1);
+	if ((text[0] == '\0'))
+		return (1);
+	else if (matchone(*pattern, *text) || matchone(p, *text++))
+		return (matchpattern(pattern, text));
+	return (0);
 }
 
-int matchpattern(regex_t* pattern, const char* text)
+int
+	matchpattern(regex_t* pattern, const char* text)
 {
 	while (1)
 	{
-		if ((pattern[0].type == UNUSED) || (pattern[1].type == QUESTIONMARK))
-			return (matchquestion(pattern[1], &pattern[2], text));
+		if (pattern[0].type == UNUSED)
+			return (matchunused(pattern[1], &pattern[2], text));
+		else if (pattern[1].type == QUESTIONMARK)
+			return (matchquestion(pattern[0], &pattern[2], text));
 		else if (pattern[1].type == STAR)
 			return (matchstar(pattern[0], &pattern[2], text));
 		else if (pattern[1].type == PLUS)
