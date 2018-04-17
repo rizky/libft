@@ -6,7 +6,7 @@
 /*   By: rnugroho <rnugroho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/13 15:22:19 by rnugroho          #+#    #+#             */
-/*   Updated: 2018/04/13 15:22:33 by rnugroho         ###   ########.fr       */
+/*   Updated: 2018/04/17 17:54:35 by rnugroho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int matchmetachar(char c, const char* str)
 
 int matchcharclass(char c, const char* str)
 {
-	while (*str != '\0')
+	while (*str != '\0' && *str != ']')
 	{
 		if (matchrange(c, str))
 			return (1);
