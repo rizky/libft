@@ -70,7 +70,7 @@ FILES+=$(addprefix $(FTMEMPATH),$(FTMEM))
 FILES+=$(addprefix $(FTSTRPATH),$(FTSTR))
 FILES+=$(addprefix $(FTWCHARPATH),$(FTWCHAR))
 FILES+=$(addprefix $(FTPFPATH),$(FTPF))
-# FILES+=$(addprefix $(FTREPATH),$(FTRE))
+FILES+=$(addprefix $(FTREPATH),$(FTRE))
 
 SRC:=$(addprefix $(SRCPATH),$(addsuffix .c,$(FILES)))
 OBJ:=$(addprefix $(CCHPATH),$(addsuffix .o,$(FILES)))
