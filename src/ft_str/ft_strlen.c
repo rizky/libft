@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rnugroho <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rnugroho <rnugroho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 16:42:14 by rnugroho          #+#    #+#             */
-/*   Updated: 2017/11/14 16:42:14 by rnugroho         ###   ########.fr       */
+/*   Updated: 2018/04/17 08:23:21 by rnugroho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@ int		ft_strlen(char *str)
 	char	*c;
 	int		len;
 
+	if (!str)
+		return (0);
 	len = 0;
 	c = str;
 	while (*c != '\0')
