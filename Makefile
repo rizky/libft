@@ -49,7 +49,7 @@ CC:=clang
 CCHPATH:=obj/
 SRCPATH:=src/
 HDRPATH:=include/
-CFLAGS:=-Wall -Wextra -I $(HDRPATH)
+CFLAGS:=-Wall -Wextra -Werror -I $(HDRPATH)
 # ==================
 
 # ===== Colors =====
