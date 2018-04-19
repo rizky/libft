@@ -6,7 +6,7 @@
 /*   By: rnugroho <rnugroho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/13 15:22:11 by rnugroho          #+#    #+#             */
-/*   Updated: 2018/04/17 22:38:55 by rnugroho         ###   ########.fr       */
+/*   Updated: 2018/04/19 10:24:42 by rnugroho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,7 @@ int
 int
 	matchquestion(regex_t p, regex_t* pattern, const char* text)
 {
-	if ((text[0] == '\0'))
-		return (1);
-	else if (matchone(*pattern, *text) || matchone(p, *text++))
+	if (matchone(*pattern, *text) || matchone(p, *text++))
 		return (matchpattern(pattern, text));
 	return (0);
 }
