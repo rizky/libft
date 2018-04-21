@@ -6,7 +6,7 @@
 /*   By: rnugroho <rnugroho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/13 15:24:05 by rnugroho          #+#    #+#             */
-/*   Updated: 2018/04/17 22:39:53 by rnugroho         ###   ########.fr       */
+/*   Updated: 2018/04/21 12:18:32 by fpetras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,36 +36,41 @@ enum
 	NOT_WHITESPACE
 };
 
-typedef struct regex_t
+typedef struct			s_regex
 {
-	unsigned char  type;
+	unsigned char		type;
 	union
 	{
-		unsigned char  ch;
-		unsigned char* ccl;
-	};
-} regex_t;
+		unsigned char	ch;
+		unsigned char	*ccl;
+	}					t_char;
+}						t_regex;
 
-typedef struct regex_t* re_t;
+typedef struct s_regex*	t_re;
 
-re_t	ft_re_compile(const char* pattern);
-int 	ft_re_matchp(re_t pattern, const char* text);
-int		ft_re_match(const char* pattern, const char* text);
-int		matchpattern(regex_t* pattern, const char* text);
-int 	matchcharclass(char c, const char* str);
-int 	matchstar(regex_t p, regex_t* pattern, const char* text);
-int 	matchplus(regex_t p, regex_t* pattern, const char* text);
-int 	matchone(regex_t p, char c);
-int 	matchdigit(char c);
-int 	matchalpha(char c);
-int		matchalphanum(char c);
-int 	matchwhitespace(char c);
-int 	matchmetachar(char c, const char* str);
-int 	matchrange(char c, const char* str);
-int 	ismetachar(char c);
-int		ft_re_matchn(const char* pattern, const char* text, int len);
-char	*ft_re_match_capture(const char *pattern, const char *group,
-		const char *text);
-char	*ft_re_capture(const char *group, const char *text);
-int		matchunused(regex_t p, regex_t* pattern, const char* text);
+t_re					ft_re_compile(const char *pattern);
+int						ft_re_matchp(t_re pattern, const char *text);
+int						ft_re_match(const char *pattern, const char *text);
+int						matchpattern(t_regex *pattern, const char *text);
+int						matchcharclass(char c, const char *str);
+int						matchstar(t_regex p, t_regex *pattern,
+						const char *text);
+int						matchplus(t_regex p, t_regex *pattern,
+						const char *text);
+int						matchone(t_regex p, char c);
+int						matchdigit(char c);
+int						matchalpha(char c);
+int						matchalphanum(char c);
+int						matchwhitespace(char c);
+int						matchmetachar(char c, const char *str);
+int						matchrange(char c, const char *str);
+int						ismetachar(char c);
+int						ft_re_matchn(const char *pattern, const char *text,
+						int len);
+char					*ft_re_match_capture(const char *pattern,
+						const char *group, const char *text);
+char					*ft_re_capture(const char *group, const char *text);
+int						matchunused(t_regex p, t_regex *pattern,
+						const char *text);
+
 #endif

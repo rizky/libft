@@ -6,62 +6,62 @@
 /*   By: rnugroho <rnugroho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/13 15:22:05 by rnugroho          #+#    #+#             */
-/*   Updated: 2018/04/13 15:41:52 by rnugroho         ###   ########.fr       */
+/*   Updated: 2018/04/21 12:13:10 by fpetras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_re.h"
 
-static regex_t	re_compiled[MAX_REGEXP_OBJECTS];
+static t_regex	g_re_compiled[MAX_REGEXP_OBJECTS];
 
 static void
 	compile_slash(char pattern, int j)
 {
 	if (pattern == 'd')
-		re_compiled[j].type = DIGIT;
+		g_re_compiled[j].type = DIGIT;
 	else if (pattern == 'D')
-		re_compiled[j].type = NOT_DIGIT;
+		g_re_compiled[j].type = NOT_DIGIT;
 	else if (pattern == 'w')
-		re_compiled[j].type = ALPHA;
+		g_re_compiled[j].type = ALPHA;
 	else if (pattern == 'W')
-		re_compiled[j].type = NOT_ALPHA;
+		g_re_compiled[j].type = NOT_ALPHA;
 	else if (pattern == 's')
-		re_compiled[j].type = WHITESPACE;
+		g_re_compiled[j].type = WHITESPACE;
 	else if (pattern == 'S')
-		re_compiled[j].type = NOT_WHITESPACE;
+		g_re_compiled[j].type = NOT_WHITESPACE;
 	else
 	{
-		re_compiled[j].type = CHAR;
-		re_compiled[j].ch = pattern;
+		g_re_compiled[j].type = CHAR;
+		g_re_compiled[j].t_char.ch = pattern;
 	}
 }
 
 static int
-	compile_sq_bracket(const char* pattern, int *ccl_bufidx, int *i, int j)
+	compile_sq_bracket(const char *pattern, int *ccl_bufidx, int *i, int j)
 {
 	static unsigned char	ccl_buf[MAX_CHAR_CLASS_LEN];
-	int buf_begin;
+	int						buf_begin;
 
 	buf_begin = (*ccl_bufidx);
 	if (pattern[(*i) + 1] == '^')
 	{
-		re_compiled[j].type = INV_CHAR_CLASS;
+		g_re_compiled[j].type = INV_CHAR_CLASS;
 		(*i)++;
 	}
 	else
-		re_compiled[j].type = CHAR_CLASS;
+		g_re_compiled[j].type = CHAR_CLASS;
 	while ((pattern[(*i)] != ']')
-			&& (pattern[(*i) + 1]	 != '\0'))
+			&& (pattern[(*i) + 1] != '\0'))
 	{
 		(*i)++;
 		if ((*ccl_bufidx) >= MAX_CHAR_CLASS_LEN)
-				return (0);
+			return (0);
 		ccl_buf[(*ccl_bufidx)++] = pattern[(*i)];
 	}
 	if ((*ccl_bufidx) >= MAX_CHAR_CLASS_LEN)
-			return (0);
+		return (0);
 	ccl_buf[(*ccl_bufidx)++] = (0);
-	re_compiled[j].ccl = &ccl_buf[buf_begin];
+	g_re_compiled[j].t_char.ccl = &ccl_buf[buf_begin];
 	return (1);
 }
 
@@ -69,23 +69,23 @@ static int
 	compile_simple_symbols(char c, int j)
 {
 	if (c == '^')
-		re_compiled[j].type = BEGIN;
+		g_re_compiled[j].type = BEGIN;
 	else if (c == '$')
-		re_compiled[j].type = END;
+		g_re_compiled[j].type = END;
 	else if (c == '.')
-		re_compiled[j].type = DOT;
+		g_re_compiled[j].type = DOT;
 	else if (c == '*')
-		re_compiled[j].type = STAR;
+		g_re_compiled[j].type = STAR;
 	else if (c == '+')
-		re_compiled[j].type = PLUS;
+		g_re_compiled[j].type = PLUS;
 	else if (c == '?')
-		re_compiled[j].type = QUESTIONMARK;
+		g_re_compiled[j].type = QUESTIONMARK;
 	else
 		return (0);
 	return (1);
 }
 
-re_t
+t_re
 	ft_re_compile(const char *pattern)
 {
 	int		ccl_bufidx;
@@ -103,14 +103,14 @@ re_t
 			(void)0;
 		else if (c == '\\')
 			(pattern[i + 1] != '\0') ? compile_slash(pattern[++i], j) : 0;
-		else if (c == '[' && compile_sq_bracket(pattern, &ccl_bufidx, &i, j) == 0)
+		else if (c == '[' && !compile_sq_bracket(pattern, &ccl_bufidx, &i, j))
 			return (0);
 		else if (c != '[')
 		{
-			re_compiled[j].type = CHAR;
-			re_compiled[j].ch = c;
+			g_re_compiled[j].type = CHAR;
+			g_re_compiled[j].t_char.ch = c;
 		}
 	}
-	re_compiled[j + 1].type = UNUSED;
-	return ((re_t)re_compiled);
+	g_re_compiled[j + 1].type = UNUSED;
+	return ((t_re)g_re_compiled);
 }
