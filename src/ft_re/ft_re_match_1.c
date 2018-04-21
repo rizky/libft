@@ -6,7 +6,7 @@
 /*   By: rnugroho <rnugroho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/13 15:22:38 by rnugroho          #+#    #+#             */
-/*   Updated: 2018/04/17 22:39:21 by rnugroho         ###   ########.fr       */
+/*   Updated: 2018/04/21 11:39:15 by fpetras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ int
 }
 
 int
-	matchrange(char c, const char* str)
+	matchrange(char c, const char *str)
 {
 	return ((c != '-') && (str[0] != '\0') && (str[0] != '-') &&
-				 (str[1] == '-') && (str[1] != '\0') &&
-				 (str[2] != '\0') && ((c >= str[0]) && (c <= str[2])));
+		(str[1] == '-') && (str[1] != '\0') &&
+		(str[2] != '\0') && ((c >= str[0]) && (c <= str[2])));
 }

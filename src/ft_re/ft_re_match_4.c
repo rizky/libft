@@ -6,7 +6,7 @@
 /*   By: rnugroho <rnugroho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/13 15:41:46 by rnugroho          #+#    #+#             */
-/*   Updated: 2018/04/17 22:38:43 by rnugroho         ###   ########.fr       */
+/*   Updated: 2018/04/21 11:51:24 by fpetras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,15 @@
 #include "libft.h"
 
 char
-	*ft_re_match_capture(const char *pattern, const char *group, const char *text)
+	*ft_re_match_capture(const char *pattern, const char *group,
+	const char *text)
 {
-	char 	*str;
+	char *str;
 
 	if (text == NULL)
 		return (NULL);
 	if (ft_re_match(pattern, text) == -1)
-		return NULL;
+		return (NULL);
 	str = ft_re_capture(group, text);
 	return (str);
 }
@@ -29,9 +30,9 @@ char
 char
 	*ft_re_capture(const char *group, const char *text)
 {
-	int 	len;
+	int		len;
 	int		start;
-	char 	*str;
+	char	*str;
 	char	*temp;
 
 	if (text == NULL)
@@ -57,7 +58,7 @@ char
 }
 
 int
-	ft_re_matchn(const char* pattern, const char* text, int len)
+	ft_re_matchn(const char *pattern, const char *text, int len)
 {
 	char	*str;
 	int		res;
@@ -72,7 +73,7 @@ int
 }
 
 int
-	matchunused(regex_t p, regex_t* pattern, const char* text)
+	matchunused(t_regex p, t_regex *pattern, const char *text)
 {
 	if ((text[0] != '\0') && matchone(p, *text))
 		matchpattern(pattern, text);
