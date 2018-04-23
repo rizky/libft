@@ -6,7 +6,7 @@
 /*   By: rnugroho <rnugroho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/13 15:22:19 by rnugroho          #+#    #+#             */
-/*   Updated: 2018/04/17 23:17:54 by rnugroho         ###   ########.fr       */
+/*   Updated: 2018/04/21 12:15:00 by fpetras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,9 @@ int
 	return ((c == 's') || (c == 'S') == (c == 'w')
 			|| (c == 'W') || (c == 'd') || (c == 'D'));
 }
+
 int
-	matchmetachar(char c, const char* str)
+	matchmetachar(char c, const char *str)
 {
 	if (str[0] == 'd')
 		return (matchdigit(c));
@@ -37,7 +38,7 @@ int
 }
 
 int
-	matchcharclass(char c, const char* str)
+	matchcharclass(char c, const char *str)
 {
 	while (*str != '\0' && *str != ']')
 	{
@@ -64,14 +65,14 @@ int
 }
 
 int
-	matchone(regex_t p, char c)
+	matchone(t_regex p, char c)
 {
 	if (p.type == DOT)
 		return (1);
 	if (p.type == CHAR_CLASS)
-		return (matchcharclass(c, (const char*)p.ccl));
+		return (matchcharclass(c, (const char*)p.t_char.ccl));
 	if (p.type == INV_CHAR_CLASS)
-		return (!matchcharclass(c, (const char*)p.ccl));
+		return (!matchcharclass(c, (const char*)p.t_char.ccl));
 	if (p.type == DIGIT)
 		return (matchdigit(c));
 	if (p.type == NOT_DIGIT)
@@ -84,11 +85,11 @@ int
 		return (matchwhitespace(c));
 	if (p.type == NOT_WHITESPACE)
 		return (!matchwhitespace(c));
-	return (p.ch == c);
+	return (p.t_char.ch == c);
 }
 
 int
-	matchstar(regex_t p, regex_t* pattern, const char* text)
+	matchstar(t_regex p, t_regex *pattern, const char *text)
 {
 	while (1)
 	{

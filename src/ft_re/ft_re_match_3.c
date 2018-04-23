@@ -6,14 +6,14 @@
 /*   By: rnugroho <rnugroho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/13 15:22:11 by rnugroho          #+#    #+#             */
-/*   Updated: 2018/04/19 10:24:42 by rnugroho         ###   ########.fr       */
+/*   Updated: 2018/04/21 11:51:04 by fpetras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_re.h"
 
 int
-	ft_re_match(const char* pattern, const char* text)
+	ft_re_match(const char *pattern, const char *text)
 {
 	if (!text)
 		return (-1);
@@ -21,7 +21,7 @@ int
 }
 
 int
-	ft_re_matchp(re_t pattern, const char* text)
+	ft_re_matchp(t_re pattern, const char *text)
 {
 	int idx;
 
@@ -47,7 +47,7 @@ int
 }
 
 int
-	matchplus(regex_t p, regex_t* pattern, const char* text)
+	matchplus(t_regex p, t_regex *pattern, const char *text)
 {
 	while ((text[0] != '\0') && matchone(p, *text++))
 		if (matchpattern(pattern, text))
@@ -56,7 +56,7 @@ int
 }
 
 int
-	matchquestion(regex_t p, regex_t* pattern, const char* text)
+	matchquestion(t_regex p, t_regex *pattern, const char *text)
 {
 	if (matchone(*pattern, *text) || matchone(p, *text++))
 		return (matchpattern(pattern, text));
@@ -64,7 +64,7 @@ int
 }
 
 int
-	matchpattern(regex_t* pattern, const char* text)
+	matchpattern(t_regex *pattern, const char *text)
 {
 	while (1)
 	{
