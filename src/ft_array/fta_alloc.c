@@ -6,12 +6,13 @@
 /*   By: rnugroho <rnugroho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/04 17:21:32 by rnugroho          #+#    #+#             */
-/*   Updated: 2018/03/21 16:21:25 by rnugroho         ###   ########.fr       */
+/*   Updated: 2018/04/23 11:44:05 by rnugroho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "ft_array.h"
+#include "libft.h"
 
 /*
 ** Array::alloc
@@ -30,6 +31,7 @@ t_array		*fta_alloc(size_t type_size)
 
 	if (!(ans = (t_array *)malloc(sizeof(t_array))))
 		return (NULL);
+	ft_bzero(ans, sizeof(t_array));
 	ans->type_size = type_size;
 	return (fta_reserve(ans, 1) ? NULL : ans);
 }
