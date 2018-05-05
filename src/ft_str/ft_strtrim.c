@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rnugroho <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rnugroho <rnugroho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 16:47:40 by rnugroho          #+#    #+#             */
-/*   Updated: 2017/11/14 16:47:45 by rnugroho         ###   ########.fr       */
+/*   Updated: 2018/05/06 01:50:33 by rnugroho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,27 @@
 
 char	*ft_strtrim(char const *s)
 {
-	char	*str;
-	int		start;
-	int		end;
-	int		i;
+	size_t	i;
+	size_t	start;
+	size_t	end;
+	char	*trimmed;
 
+	i = 0;
 	start = 0;
 	if (!s)
 		return (NULL);
-	while ((ft_strchr(" \n\t", s[start]) != NULL) && (s[start] != '\0'))
+	end = ft_strlen(s);
+	while (s[start] && ft_isspace(s[start]))
 		start++;
-	end = ft_strlen(s) - 1;
-	while ((ft_strchr(" \n\t", s[end]) != NULL) && (end > 0) && (end > start))
+	while (start < end && s[end - 1] && ft_isspace(s[end - 1]))
 		end--;
-	str = (char *)ft_memalloc(end - start + 2);
-	if (!str)
+	if (!(trimmed = (char*)malloc(sizeof(char) * ((end - start) + 1))))
 		return (NULL);
-	i = 0;
-	while (start <= end)
+	while (i < (end - start))
 	{
-		str[i] = s[start];
-		start++;
+		trimmed[i] = s[start + i];
 		i++;
 	}
-	str[i] = '\0';
-	return (str);
+	trimmed[i] = '\0';
+	return (trimmed);
 }
