@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fta_replace.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rnugroho <rnugroho@students.42.fr>         +#+  +:+       +#+        */
+/*   By: rnugroho <rnugroho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 19:23:44 by rnugroho          #+#    #+#             */
-/*   Updated: 2018/02/17 11:22:37 by rnugroho         ###   ########.fr       */
+/*   Updated: 2018/05/14 21:13:29 by rnugroho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@
 ** 0 otherwise.
 */
 
-int		fta_replace(t_array *self, size_t index, size_t len, t_array *new)
+int		fta_replace(t_array *self, size_t index, size_t len, t_array *_new)
 {
 	return (fta_popindex(self, index, len)
-		|| fta_insert(self, new->data, new->size, index));
+		|| fta_insert(self, _new->data, _new->size, index));
 }

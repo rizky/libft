@@ -6,12 +6,16 @@
 /*   By: rnugroho <rnugroho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/17 17:38:44 by rnugroho          #+#    #+#             */
-/*   Updated: 2018/04/13 10:34:38 by rnugroho         ###   ########.fr       */
+/*   Updated: 2018/05/14 21:16:31 by rnugroho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+
+#ifdef __cplusplus
+extern "C"{
+#endif 
 
 # include <unistd.h>
 # include <string.h>
@@ -99,11 +103,11 @@ void			ft_putnbr_fd(int n, int fd);
 t_list			*ft_lstnew(void const *content, size_t content_size);
 void			ft_lstdelone(t_list **alst, void (*del)(void*, size_t));
 void			ft_lstdel(t_list **alst, void (*del)(void *, size_t));
-void			ft_lstadd(t_list **alst, t_list *new);
+void			ft_lstadd(t_list **alst, t_list *_new);
 void			ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 
-void			ft_lstaddlast(t_list **alst, t_list *new);
+void			ft_lstaddlast(t_list **alst, t_list *_new);
 t_list			*ft_strsplit_tolst(char const *s, char c);
 void			ft_lstclear(t_list **begin_list);
 t_list			*ft_lstfind(t_list *begin_list, void *data_ref, int (*cmp)());
@@ -136,4 +140,9 @@ double			ft_modf(double num);
 # define EOC 0
 # define RED 1
 # define GREEN 2
+
+#ifdef __cplusplus
+}
+#endif
+
 #endif

@@ -6,7 +6,7 @@
 /*   By: rnugroho <rnugroho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/24 13:50:45 by rnugroho          #+#    #+#             */
-/*   Updated: 2018/04/15 21:12:15 by rnugroho         ###   ########.fr       */
+/*   Updated: 2018/05/14 21:13:29 by rnugroho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 ** -
 ** In C++ and Java, one would declare such an object with
 ** the template/generics syntax :
-** |	Vector<SomeType> variable = new Vector<SomeType>();
+** |	Vector<SomeType> variable = _new Vector<SomeType>();
 ** -
 ** Here in C,
 ** |	t_array	variable = NEW_ARRAY(t_some_type);
@@ -42,7 +42,7 @@ typedef struct	s_array
 */
 
 /*
-** Array::new
+** Array::_new
 ** -
 ** Failsafe constructor, no memory is allocated.
 ** -
@@ -54,7 +54,7 @@ typedef struct	s_array
 # define NEW_ARRAY(T) (t_array){NULL, 0, 0, sizeof(T)}
 
 /*
-** Array::new
+** Array::_new
 ** -
 ** Constructor that tries a first malloc.
 ** -
@@ -275,7 +275,7 @@ int				fta_popindexf(
 */
 
 int				fta_replace(
-	t_array *self, size_t index, size_t len, t_array *new);
+	t_array *self, size_t index, size_t len, t_array *_new);
 
 /*
 ** Array::pop_front
@@ -354,7 +354,7 @@ int				fta_replace(
 # define ARRAY_IFP(A,P) ((((void *)P) - (A)->data) / (A)->type_size)
 
 /*
-** Iterator<Array>::new
+** Iterator<Array>::_new
 ** -
 ** Returns an iterator over an array.
 */
@@ -406,7 +406,7 @@ int				fta_replace(
 ** -
 ** Increments the iterator, for it to point to the next element.
 ** -
-** Returns the new value of the iterator.
+** Returns the _new value of the iterator.
 */
 
 # define ARRAY_NEXT(A,IT) ((IT) += ARRAY_STEP(A))
@@ -439,7 +439,7 @@ char			*fta_string(t_array *self, char *(*f)(void *));
 */
 
 /*
-** The initial size is the number of elements a new array will be able
+** The initial size is the number of elements a _new array will be able
 ** to store before allocating more memory.
 */
 
